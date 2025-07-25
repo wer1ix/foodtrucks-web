@@ -16,7 +16,7 @@ def load_data_in_es():
     data = r.json()
     print("Loading data in elasticsearch ...")
     for id, truck in enumerate(data):
-        res = es.index(index="sfdata", doc_type="truck", id=id, body=truck)
+        res = es.index(index="sfdata", id=id, document=truck)
     print("Total trucks loaded: ", len(data))
 
 def safe_check_index(index, retry=3):
